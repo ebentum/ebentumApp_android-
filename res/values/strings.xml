@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ebentum</string>
+    <string name="action_search_users">Buscar usuarios</string>
+    <string name="action_share_event">Compartir evento</string>
+    <string name="action_refresh">Refrescar</string>
+    <string name="action_settings">Configuración</string>
+    <string name="action_close_session">Cerrar sesión</string>
+    <string name="title_section1">Actividad</string>
+    <string name="title_section2">Explorar</string>
+    <string name="title_section3">Axel Foley</string>
+    <string name="title_activity_user_settings">User Settings</string>
+    <string name="title_activity_user_profile">User Profile</string>
+    <string name="title_activity_event_detail">Event Detail</string>
+    <string name="title_activity_new_event">New Event</string>
+    <string name="title_activity_login">Login</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="search_hint">Buscar usuarios</string>
+    <string name="app_loading">Cargando...</string>
+
+    <string name="title_activity_splash_screen">SplashScreenActivity</string>
+
+</resources>

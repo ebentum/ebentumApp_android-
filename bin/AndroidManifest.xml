@@ -18,7 +18,7 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@android:style/Theme.Holo.Light" android:logo="@drawable/ic_logo" android:hardwareAccelerated="true" android:description="ebentum es tu aplicación para descubrir y compartir todo tipo de eventos">
+        android:theme="@android:style/Theme.Holo.Light" android:logo="@drawable/ic_logo" android:hardwareAccelerated="true">
         <activity
             android:name="com.ebentum.ebentumapp.MainActivity"
             android:screenOrientation="portrait"

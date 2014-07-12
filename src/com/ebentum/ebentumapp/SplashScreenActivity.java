@@ -27,14 +27,18 @@ public class SplashScreenActivity extends Activity {
 	}
 	
 	private void initApplication() {
-		final String userId = AppNavigation.getUserId();
-		
-		Log.d("splashscreen","userid -> " + userId);
+
 		
 		TimerTask task = new TimerTask() {
+			
 			@Override
 			public void run() {
 				Intent mainIntent;
+				
+				final String userId = AppNavigation.getUserId();
+				
+				Log.d("splashscreen","userid -> " + userId);
+				
 				if(userId != null && !userId.isEmpty())
 					mainIntent = new Intent().setClass(SplashScreenActivity.this, MainActivity.class);
 				else

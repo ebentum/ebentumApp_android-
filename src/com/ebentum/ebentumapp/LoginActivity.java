@@ -17,6 +17,9 @@ public class LoginActivity extends WebActivity {
 		Intent intent = getIntent();
 		String sign_out = intent.getStringExtra("sign_out");
 		
+		
+		AppNavigation.logginOut = true;
+		
 		//if (sign_out != null)
 		//	pageUrl = "/users/sign_out";
 		//else

@@ -15,6 +15,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -61,7 +62,9 @@ public class MainActivity extends FragmentActivity {
 		mViewPager.setOffscreenPageLimit(3);
 		mViewPager.setAdapter(mSectionsPagerAdapter);
 		
-		AppNavigation.logginOut = false;
+		
+		
+		//AppNavigation.logginOut = false;
 		
 	}
 	
@@ -230,6 +233,7 @@ public class MainActivity extends FragmentActivity {
 				return getString(R.string.title_section2);
 			case 2:
 				//return getString(R.string.title_section3);
+				Log.d("main_activity", "get username ...");
 				return AppNavigation.getUserName();
 			}
 			return null;

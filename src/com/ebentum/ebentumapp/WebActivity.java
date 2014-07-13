@@ -214,6 +214,18 @@ public class WebActivity extends Activity {
     public void onBackPressed(){
 
         if (pageWebview.canGoBack()) {
+        	
+        	// mostrar cargando... durante 2 segs para dar feedback...
+        	showLoadingDialog(true);
+        	
+        	final Handler handler = new Handler();
+        	handler.postDelayed(new Runnable() {
+        	    @Override
+        	    public void run() {
+        	    	WebActivity.this.showLoadingDialog(false);
+        	    }
+        	}, 2000); 
+        	
         	pageWebview.goBack();
             return;
         }
@@ -291,9 +303,23 @@ public class WebActivity extends Activity {
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
  
             //view.loadUrl(url + "?native_app=true");
-        	
+        	boolean overrideYN;
             isOffline = false;
-            return AppNavigation.processWebNavigation(WebActivity.this, view, url, "");
+            overrideYN = AppNavigation.processWebNavigation(WebActivity.this, view, url, "");
+            if(!overrideYN){
+            	// Si la actividad va cargar otra url en la misma webview (va a navegar) mostrar dialogo cargando durante 2 segs para dar feedback
+            	
+            	showLoadingDialog(true);
+            	
+            	final Handler handler = new Handler();
+            	handler.postDelayed(new Runnable() {
+            	    @Override
+            	    public void run() {
+            	    	WebActivity.this.showLoadingDialog(false);
+            	    }
+            	}, 2000); 
+            }
+            return overrideYN;
         }
         
         public void onPageFinished(WebView view, String url) {

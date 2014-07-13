@@ -70,7 +70,6 @@ public class AppNavigation {
 		if (!logginOut) {
 			logginOut = true;
 
-			
 			TimerTask task = new TimerTask() {
 				
 				@Override
@@ -83,7 +82,7 @@ public class AppNavigation {
 			};
 
 			Timer timer = new Timer();
-			timer.schedule(task, 500);			
+			timer.schedule(task, 1000);			
 		}
 	}
 
@@ -96,7 +95,10 @@ public class AppNavigation {
 	public static String getUserName() {
 		String userName = AppNavigation.getCookie(AppNavigation.siteDomain,
 				"ebentum_username");
-		return URLDecoder.decode(userName);
+		if (userName != null)
+			return URLDecoder.decode(userName);
+		else
+			return "";
 	}
 
 	public static String getCookie(String siteName, String CookieName) {
@@ -156,6 +158,8 @@ public class AppNavigation {
 					|| pageUrl.startsWith("users/sign_up")
 					|| pageUrl.startsWith("users/twitter_login")
 					|| pageUrl.startsWith("users/facebook_login")
+					|| pageUrl.startsWith("users/auth_login")
+					|| pageUrl.startsWith("auth_login")
 					|| pageUrl.startsWith("users/auth/twitter")
 					|| pageUrl.startsWith("users/auth/facebook")) {
 
@@ -243,8 +247,7 @@ public class AppNavigation {
 
 			}
 
-			if (pageUrl != null && pageUrl.length() > 0) { // &&
-															// !pageUrl.startsWith("#_=_")){
+			if (pageUrl != null && pageUrl.length() > 0 && !pageUrl.startsWith("#_=_") && !pageUrl.startsWith("?")){
 				// si es "url del sitio / algo" el algo es id de evento (
 				// pageUrl al haber quitado el siteUrl queda la id)
 				openEventDetail(CurrentActivity, pageUrl);

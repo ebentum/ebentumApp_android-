@@ -61,11 +61,13 @@ public class WebFragment extends Fragment {
         
         pageWebview.setWebViewClient(new customWebViewClient());
         
-        
-        pageWebview.loadUrl(AppNavigation.siteUrl + pageUrl + "?native_app=true");
-        
+        loadUrlContent();
        
         return rootView;
+    }
+    
+    public void loadUrlContent(){
+    	pageWebview.loadUrl(AppNavigation.siteUrl + pageUrl + "?native_app=true");
     }
     
     private void configureWebViewTouch(){

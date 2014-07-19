@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ebentum.ebentumapp"
-    android:versionCode="6"
+    android:versionCode="7"
     android:versionName="1.0" >
 
     <uses-sdk
@@ -26,6 +26,14 @@
             <meta-data
                 android:name="android.app.default_searchable"
                 android:value=".SearchUsersActivity" />
+            <intent-filter>
+  				<action android:name="android.intent.action.VIEW"/>
+  				<category android:name="android.intent.category.DEFAULT"/>
+  				<category android:name="android.intent.category.BROWSABLE"/>
+  				<data android:host="www.ebentum.com"> </data>
+            	<data android:scheme="http"></data>
+            	<data android:pathPattern=".*"></data>
+			</intent-filter>
         </activity>
         
         

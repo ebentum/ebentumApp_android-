@@ -3,11 +3,13 @@ package com.ebentum.ebentumapp;
 import java.util.Locale;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -22,6 +24,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.SearchView;
 import android.widget.TextView;
 
@@ -62,7 +65,14 @@ public class MainActivity extends FragmentActivity {
 		mViewPager.setOffscreenPageLimit(3);
 		mViewPager.setAdapter(mSectionsPagerAdapter);
 		
+		Intent intent = getIntent();
 		
+		if(intent!=null){
+			if(intent.getAction() == Intent.ACTION_VIEW){
+				AppNavigation.processWebNavigation(this,null, AppNavigation.siteUrl + intent.getData().getPath(), null) ;
+				
+			}
+		}
 		
 		//AppNavigation.logginOut = false;
 		

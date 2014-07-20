@@ -27,8 +27,9 @@ public final class R {
         public static final int ic_action_new_event=0x7f020003;
         public static final int ic_action_refresh=0x7f020004;
         public static final int ic_action_search=0x7f020005;
-        public static final int ic_launcher=0x7f020006;
-        public static final int ic_logo=0x7f020007;
+        public static final int ic_action_share=0x7f020006;
+        public static final int ic_launcher=0x7f020007;
+        public static final int ic_logo=0x7f020008;
     }
     public static final class id {
         public static final int action_close_session=0x7f090012;
@@ -68,9 +69,10 @@ public final class R {
     public static final class menu {
         public static final int activity_main_actions=0x7f080000;
         public static final int activity_search_users_actions=0x7f080001;
-        public static final int main=0x7f080002;
-        public static final int splash_screen=0x7f080003;
-        public static final int user_settings=0x7f080004;
+        public static final int event_detail=0x7f080002;
+        public static final int main=0x7f080003;
+        public static final int splash_screen=0x7f080004;
+        public static final int user_settings=0x7f080005;
     }
     public static final class string {
         public static final int action_close_session=0x7f060005;

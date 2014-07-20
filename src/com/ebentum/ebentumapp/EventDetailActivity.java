@@ -3,6 +3,7 @@ package com.ebentum.ebentumapp;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v4.app.NavUtils;
@@ -39,13 +40,36 @@ public class EventDetailActivity extends WebActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.user_settings, menu);
+		getMenuInflater().inflate(R.menu.event_detail, menu);
 		return true;
 	}
+	
+	public void shareEvent(String shareText){
+		Intent sendIntent = new Intent();
+		sendIntent.setAction(Intent.ACTION_SEND);
+		sendIntent.putExtra(Intent.EXTRA_TEXT, shareText);
+		sendIntent.setType("text/plain");
+		startActivity(Intent.createChooser(sendIntent, "Compartir evento"));
 
+	}
+	
+	public void initShareEvent(){
+		pageWebview.loadUrl("javascript:ebentumApp.shareEventText()");
+	}	
+	
+	@Override
+	public String setShareText(String shareText){
+		shareEvent(shareText);
+	    return shareText;
+	}
+	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
+        case R.id.action_share_event:
+        	initShareEvent();
+            return true;
+		
 		case android.R.id.home:
 			// This ID represents the Home or Up button. In the case of this
 			// activity, the Up button is shown. Use NavUtils to allow users

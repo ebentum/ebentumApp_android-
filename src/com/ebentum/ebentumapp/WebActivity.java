@@ -337,6 +337,11 @@ public class WebActivity extends Activity {
  
     } 
     
+    public String setShareText(String shareText){
+    	return shareText;
+    }
+    
+    
     private class EbentumJavascriptInterface {
   	  Context mContext;
   	  	
@@ -360,5 +365,11 @@ public class WebActivity extends Activity {
   	    	WebActivity.this.showLoadingDialog(false);
   	    	 
   	     }
+  	     
+  	     @JavascriptInterface
+	     public void setShareText(String text){
+	    	WebActivity.this.setShareText(text);
+	    	 
+	     }  	     
     }
 }
